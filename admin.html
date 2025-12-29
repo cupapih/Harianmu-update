@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html><body>
+<h3>Admin</h3>
+<input id="key" placeholder="Admin Key"><br>
+<input id="title" placeholder="Title"><br>
+<input id="url" placeholder="Video URL"><br>
+<button onclick="go()">Generate</button>
+<script>
+function go(){
+ fetch('/api/generate',{
+  method:'POST',
+  headers:{'Content-Type':'application/json'},
+  body:JSON.stringify({key:key.value,title:title.value,url:url.value})
+ }).then(r=>r.text()).then(alert);
+}
+</script>
+</body></html>

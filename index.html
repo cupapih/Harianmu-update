@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Harianmu</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<div id="app"></div>
+<script>
+fetch('/api/videos').then(r=>r.json()).then(d=>{
+ let h='';
+ d.videos.reverse().forEach(v=>{
+  h+=`<div><a href="${v.url}" target="_blank">${v.title}</a></div>`;
+ });
+ document.getElementById('app').innerHTML=h;
+});
+</script>
+</body>
+</html>
